@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 
+import './category_meals_screen.dart';
+
 class CategoryItem extends StatelessWidget {
   final String title;
   final Color color;
 
   CategoryItem(this.title, this.color);
 
+  void selectCategory(BuildContext ctx){
+    Navigator.of(ctx).push(MaterialPageRoute(builder: (_){
+      return CategoryMealsScreen();
+    },),);
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ,
+      onTap: () => selectCategory(context),
       borderRadius: BorderRadius.circular(15),
       splashColor: Theme.of(context).primaryColor,
           child: Container(
