@@ -4,6 +4,7 @@ class CategoryMealsScreen extends StatelessWidget {
 
   // final String categoryId;
   // final String categoryTitle;
+  static const routeName = '/category-meals';                         //-----> less error prone !!!
 
   // CategoryMealsScreen(this.categoryId, this.categoryTitle);
 
