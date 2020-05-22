@@ -17,7 +17,7 @@ class MealItem extends StatelessWidget {
     @required this.affordability,
   });
 
-  void selectMeal(){}
+  void selectMeal() {}
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +31,21 @@ class MealItem extends StatelessWidget {
         margin: EdgeInsets.all(10),
         child: Column(
           children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15),
-                topRight: Radius.circular(15),
-              ),
-              child: Image.network(
-                imageUrl,
-                height: 250,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
+            Stack(
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                  ),
+                  child: Image.network(
+                    imageUrl,
+                    height: 250,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
