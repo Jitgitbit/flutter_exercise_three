@@ -107,7 +107,7 @@ class MealItem extends StatelessWidget {
                       SizedBox(
                         width: 6,
                       ),
-                      Text('${duration} min'),
+                      Text('$duration min'),        //-------> ! if you're only referring to one property, you don't even need the curly braces !
                     ],
                   ),
                   Row(
