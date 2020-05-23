@@ -37,6 +37,11 @@ class MyApp extends StatelessWidget {
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),     //-------> less error-prone !!
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
       },
+      onUnknownRoute: (settings){
+        print('under here, are the settings.arguments, UnknownRoute has been used! Routing problem!');
+        print(settings.arguments);
+        return MaterialPageRoute(builder: (ctx) => CategoriesScreen());     //------> only when all else fails !
+      },
     );
   }
 }
