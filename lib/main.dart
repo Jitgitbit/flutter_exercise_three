@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './dummy_data.dart';
+import './models/meal.dart';
 import './screens/filters_screen.dart';
 import './screens/tabs_screen.dart';
 import './screens/meal_detail_screen.dart';
@@ -22,7 +24,17 @@ class _MyAppState extends State<MyApp> {
     'vegan': false,
   };
 
-  void _setFilters(Map<String, bool> filterData){}
+  List<Meal> _availableMeals = DUMMY_MEALS;
+
+  void _setFilters(Map<String, bool> filterData){
+    setState(() {
+      _filters = filterData;
+
+      _availableMeals = DUMMY_MEALS.where((meal){
+        //...
+      }).toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +63,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',                 //---> default is '/' , can be usefull to change in some cases!
       routes: {
         '/': (ctx) => TabsScreen(),
-        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),     //-------> less error-prone !!
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(_availableMeals),     //-------> less error-prone !!
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
         FiltersScreen.routeName: (ctx) => FiltersScreen(_setFilters),
       },
