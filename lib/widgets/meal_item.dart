@@ -10,6 +10,7 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function removeItem;
 
   MealItem({
     @required this.id,
@@ -18,13 +19,14 @@ class MealItem extends StatelessWidget {
     @required this.duration,
     @required this.complexity,
     @required this.affordability,
+    @required this.removeItem,
   });
 
   String get complexityText {
     // if(complexity == Complexity.Simple){
     //   return 'Simple';
     // }
-    switch(complexity){
+    switch (complexity) {
       case Complexity.Simple:
         return 'Simple';
         break;
@@ -38,8 +40,9 @@ class MealItem extends StatelessWidget {
         return 'Unknown';
     }
   }
+
   String get affordabilityText {
-    switch(affordability){
+    switch (affordability) {
       case Affordability.Affordable:
         return 'Affordable';
         break;
@@ -54,14 +57,23 @@ class MealItem extends StatelessWidget {
     }
   }
 
-  void selectMeal(BuildContext context, ) {
-    Navigator.of(context).pushNamed(MealDetailScreen.routeName, arguments: id);
+  void selectMeal(
+    BuildContext context,
+  ) {
+    Navigator.of(context)
+        .pushNamed(MealDetailScreen.routeName, arguments: id)
+        .then((result){
+          print(result);
+          if(result != null){
+            removeItem(result);
+          }
+        });
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=> selectMeal(context),
+      onTap: () => selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -112,7 +124,8 @@ class MealItem extends StatelessWidget {
                       SizedBox(
                         width: 6,
                       ),
-                      Text('$duration min'),        //-------> ! if you're only referring to one property, you don't even need the curly braces !
+                      Text(
+                          '$duration min'), //-------> ! if you're only referring to one property, you don't even need the curly braces !
                     ],
                   ),
                   Row(
