@@ -57,6 +57,36 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     });
                   },
                 ),
+                _buildSwitchListTile(
+                  'Lactose-free', 
+                  'Only include lactose-free meals.', 
+                  _lactoseFree, 
+                  (newValue){
+                    setState((){
+                      _lactoseFree = newValue;
+                    });
+                  },
+                ),
+                _buildSwitchListTile(
+                  'Vegan', 
+                  'Only include vegan meals.', 
+                  _vegan, 
+                  (newValue){
+                    setState((){
+                      _vegan = newValue;
+                    });
+                  },
+                ),
+                _buildSwitchListTile(
+                  'Vegetarian', 
+                  'Only include vegetarian meals.', 
+                  _vegetarian, 
+                  (newValue){
+                    setState((){
+                      _vegetarian = newValue;
+                    });
+                  },
+                ),
               ],
             ),
           ),
