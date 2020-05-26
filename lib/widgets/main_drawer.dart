@@ -39,8 +39,8 @@ class MainDrawer extends StatelessWidget {
           ),
           SizedBox(height: 20),
           buildListTile('Meals', Icons.restaurant, (){
-            Navigator.of(context).pushReplacementNamed('/');
-          }),
+            Navigator.of(context).pushReplacementNamed('/');        //-------> it is important to replace instead of push, because otherwise our stack just 
+          }),                                                      // keeps on growing, this way the back arrow also goes away. A classic example is login !
           buildListTile('Filter', Icons.settings, (){
             Navigator.of(context).pushReplacementNamed(FiltersScreen.routeName);
           }),
