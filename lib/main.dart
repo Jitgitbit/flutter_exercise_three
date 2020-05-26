@@ -31,7 +31,19 @@ class _MyAppState extends State<MyApp> {
       _filters = filterData;
 
       _availableMeals = DUMMY_MEALS.where((meal){
-        //...
+        if(_filters['lactose'] && !meal.isLactoseFree){
+          return false;
+        }
+        if(_filters['gluten'] && !meal.isGlutenFree){
+          return false;
+        }
+        if(_filters['vegetarian'] && !meal.isVegetarian){
+          return false;
+        }
+        if(_filters['vegan'] && !meal.isVegan){
+          return false;
+        }
+        return true;
       }).toList();
     });
   }
