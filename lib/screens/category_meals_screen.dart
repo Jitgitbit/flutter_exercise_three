@@ -28,8 +28,8 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
 
   @override
   void didChangeDependencies() {
-    
-    if(_loadedInitData == false){
+
+    if(!_loadedInitData){
       final routeArgs = ModalRoute.of(context).settings.arguments as Map<String, String>;          // yes, String keys and String values !
       categoryTitle = routeArgs['title'];
       final categoryId = routeArgs['id'];
