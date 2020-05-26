@@ -40,7 +40,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.save),
-            onPressed: ,
+            onPressed: widget.saveFilters,           // ! nice data flow !
           ),
         ],
       ),
