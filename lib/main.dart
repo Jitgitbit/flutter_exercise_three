@@ -8,7 +8,22 @@ import './screens/categories_screen.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  Map<String, bool> _filters = {
+    'lactose': false,
+    'gluten': false,
+    'vegetarian': false,
+    'vegan': false,
+  };
+
+  void _setFilters(Map<String, bool> filterData){}
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,7 +53,7 @@ class MyApp extends StatelessWidget {
         '/': (ctx) => TabsScreen(),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),     //-------> less error-prone !!
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
-        FiltersScreen.routeName: (ctx) => FiltersScreen(),
+        FiltersScreen.routeName: (ctx) => FiltersScreen(_setFilters),
       },
       onUnknownRoute: (settings){
         print('under here, are the settings.arguments, UnknownRoute has been used! Routing problem!');

@@ -7,6 +7,10 @@ class FiltersScreen extends StatefulWidget {
 
   static const routeName = '/filters';
 
+  final Function saveFilters;
+
+  FiltersScreen(this.saveFilters);                                  //-----> Constructor need to get Function passed in !
+
   @override
   _FiltersScreenState createState() => _FiltersScreenState();
 }
@@ -33,6 +37,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Your Filters'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.save),
+            onPressed: ,
+          ),
+        ],
       ),
       drawer: MainDrawer(),
       body: Column(
