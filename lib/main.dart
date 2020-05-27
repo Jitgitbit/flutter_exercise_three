@@ -49,6 +49,21 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  void _toggleFavorite(String mealId){
+
+    final existingIndex = _favoritedMeals.indexWhere((meal) => meal.id == mealId);
+
+    if(existingIndex >= 0){
+      setState(() {
+        _favoritedMeals.removeAt(existingIndex);
+      });
+    }else{
+      setState(() {
+        _favoritedMeals.add(DUMMY_MEALS.firstWhere((meal) => meal.id == mealId));
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
