@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
-  bool isMealFavorite(String id){
+  bool _isMealFavorite(String id){
     return _favoritedMeals.any((meal) => meal.id == id);
   }
 
