@@ -25,6 +25,7 @@ class _MyAppState extends State<MyApp> {
   };
 
   List<Meal> _availableMeals = DUMMY_MEALS;
+  List<Meal> _favoritedMeals = [];
 
   void _setFilters(Map<String, bool> filterData){
     setState(() {
@@ -74,7 +75,7 @@ class _MyAppState extends State<MyApp> {
       // home: CategoriesScreen(),
       initialRoute: '/',                 //---> default is '/' , can be usefull to change in some cases!
       routes: {
-        '/': (ctx) => TabsScreen(),
+        '/': (ctx) => TabsScreen(_favoritedMeals),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(_availableMeals),     //-------> less error-prone !!
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
         FiltersScreen.routeName: (ctx) => FiltersScreen(_filters, _setFilters),
